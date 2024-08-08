@@ -8,10 +8,38 @@
     <artifactId>RestEndpointWithJava</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <parent>
+        <groupId>io.helidon.applications</groupId>
+        <artifactId>helidon-mp</artifactId>
+        <version>4.0.11</version>
+        <relativePath/>
+    </parent>
+
+
+<!--    If you want to use the Main provided by Helidon-->
     <properties>
-        <maven.compiler.source>21</maven.compiler.source>
-        <maven.compiler.target>21</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <mainClass>io.helidon.microprofile.cdi.Main</mainClass>
     </properties>
-    
+
+    <dependencies>
+        <dependency>
+            <groupId>io.helidon.microprofile.bundles</groupId>
+            <artifactId>helidon-microprofile</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>copy-libs</id>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
 </project>
